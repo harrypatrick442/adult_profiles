@@ -9,8 +9,8 @@ module.exports= new (function(){
 	const AGE_fROM='ageFrom';
 	const AGE_TO='ageTo';
 			
-    const dalPornSite = require('./DalPornSite');	
-	const sql = require('mssql');
+    const Dal= require('dal');
+	const sql = Dal.sql;
 	const S = require('./../strings/S');
 	const each=require('./../../../core/backend/each');
 	this.get = function(userId, callback){

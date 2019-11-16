@@ -193,7 +193,7 @@ WEBCAMS = 'webcams';
 	const HIPS_MEASUREMENT='hipsMeasurement';
 			
     const Dal = require('dal');	
-	const sql = require('mssql');
+	const sql = Dal.sql;
 	const S = require('./../strings/S');
 	const each = require('./../../../core/backend/each');
 	const Iterator = require('./../../../core/backend/Iterator');

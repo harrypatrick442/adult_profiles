@@ -60,3 +60,5 @@ backend/node_modules/ssh2
 node_modules/ssh2
 backend/node_modules/strings
 node_modules/strings
+backend/node_modules/watchdog
+node_modules/watchdog
