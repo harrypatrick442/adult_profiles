@@ -1,21 +1,21 @@
 {
-  "name": "adult_profiles",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/harrypatrick442/adult_profiles.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/harrypatrick442/adult_profiles/issues"
-  },
-  "homepage": "https://github.com/harrypatrick442/adult_profiles#readme"
+	"name": "adult_profiles",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"dependencies": {},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/harrypatrick442/adult_profiles.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/harrypatrick442/adult_profiles/issues"
+	},
+	"homepage": "https://github.com/harrypatrick442/adult_profiles#readme"
 }
