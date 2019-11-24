@@ -1,4 +1,4 @@
-const S = require('./../strings/S');
+const S = require('strings').S;
 module.exports = {
 	location:[S.FORMATTED_ADDRESS,S.LAT, S.LNG, S.STREET_NUMBER, S.POLITICAL, S.ROUTE, S.LOCALITY, S.POSTAL_TOWN, S.POSTAL_CODE, S.ADMINISTRATIVE_AREA_LEVEL_1, S.ADMINISTRATIVE_AREA_LEVEL_2, S.COUNTRY, S.PREMISE,
 	S.QUADS],
