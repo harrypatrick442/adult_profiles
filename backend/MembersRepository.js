@@ -1,7 +1,7 @@
 module.exports = new (function(){
-	const DalProfiles = require('./../DAL/DalProfiles');
-	const SearchMembersCache = require('./../cache/SearchMembersCache');
-	const S = require('./../strings/S');
+	const DalProfiles = require('./DalProfiles');
+	const SearchMembersCache = require('./SearchMembersCache');
+	const S = require('strings').S;
 	this.search = function(req, callback){
 		var ticket = req[S.TICKET];
 		_search(req[S.CRITERIA]).then(function(members){

@@ -1,8 +1,7 @@
 module.exports = new (function(){
-	const dalProfiles = require('./../DAL/DalProfiles');
-	const Profile = require('./../client/Profile');
-	const Cache = require('./../cache/Cache');
-	const ProfilesRouter = require('./../interserver_communication/routers/ProfilesRouter');
+	const dalProfiles = require('./DalProfiles');
+	const Cache = require('cache').Cache;
+	const ProfilesRouter = require('./ProfilesRouter');
 	var cache = new Cache({
 		name:'Profiles Cache',
 		getFromDatabaseById:dalProfiles.getByUserId,

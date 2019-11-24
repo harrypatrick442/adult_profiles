@@ -1,8 +1,9 @@
 module.exports = new (function(){
 	const MESSAGE='message';
 	const EventEnabledBuilder = require('core').EventEnabledBuilder;
-	const ItemTypes = require('enums')ItemTypes;
-	const ItemRouter = require('./ItemRouter');
+	const ItemTypes = require('enums').ItemTypes;
+	const InterserverCommunication = require('interserver_communication');
+	const ItemRouter = InterserverCommunication.ItemRouter;
 	var _profilesRouter;
 	this.get=function(){
 		if(!_profilesRouter){
