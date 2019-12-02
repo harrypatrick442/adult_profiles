@@ -1,0 +1,195 @@
+ .profile{
+	width:100%;
+	height:100%;
+    overflow-y: auto;
+ }
+ .profile-interview, .profile-location{
+	 position:relative;
+	 width:100%;
+	 float:left;
+ }
+ .profile-contact{
+	 position:relative;
+	 width:100%;
+	 float:left;
+	 padding-left:5px;
+ }
+ .profile-contact .message{
+	height: 29px;
+    box-sizing: border-box;
+    background-color: rgb(197, 68, 62);
+    border-left: 0px;
+    border-radius: 3px;
+    float: left;
+    text-align: center;
+	padding:2px;
+    padding-left: 4px;
+    padding-right: 10px;
+    cursor: pointer;
+    font-family: verdana, geneva, sans-serif;
+    color: #dddddd;
+    border: 2px solid #505050;
+ }
+ .profile-contact .message span{
+	float:left;
+	line-height:21px;
+ }
+ .profile-contact .message .image{
+	margin-right:3px;
+	width:20px;
+	height:20px;
+	margin-top:2px;
+	float:left;
+ }
+ .profile-contact .message:hover span{
+	color:#ffffff;
+ }
+.profile .fields{
+
+	float:left;
+	margin-top:8px;
+ }
+ .profile .title{
+    font-size: 16px;
+	font-weight:bold;
+    font-family: verdana, geneva, sans-serif;
+	color:rgb(32, 31, 39);
+	padding-left:6px;
+ }
+ .profile .field.headline{
+	 width:100%;
+ }
+.profile .field{
+	margin-top:4px;
+ }
+.profile .field.name-inline{
+	margin-top:8px;
+ }
+.one-field-per-row.profile .field{
+ }
+.two-fields-per-row.profile .field{
+}
+.three-fields-per-row.profile .field{
+}
+.two-fields-per-row.profile .field .field-key,
+.three-fields-per-row.profile .field .field-key{
+	width:90px;
+}
+.profile .field .field-key{
+	padding-left:5px;
+	font-size:14px;
+}
+.profile .field .field-value-span{
+}
+.profile .field.name-inline .field-value-span{
+	padding-left:4px;
+}
+.profile .field .field-value{
+	font-family: verdana, geneva, sans-serif;
+}
+.profile .field .field-value.select,
+.profile .field .field-value.text-box,
+.profile .field .field-value.date-picker-popup{
+	font-size:14px;
+}
+.profile .field textarea.field-value.text-box{
+	min-height:30px;
+}
+.profile.readonly .field .field-value.text-box{
+	color:#000000;
+}
+.profile .field .field-value.text-block{
+	padding-top:2px;
+	font-size:14px;
+}
+.profile .button.edit{
+	height:16px;
+	width:16px;
+	cursor:pointer;
+	float:left;
+	display:block;
+	margin-left:5px;
+}
+.profile .button.edit:hover{
+	
+}
+.profile .interests .label,
+.profile .interests .tags-editor{
+	display:none;
+}
+.profile .interests .label.visible,
+.profile .interests .tags-editor.visible{
+	display:inline-block;
+}
+.profile-location .field-value-span{float:left; padding-left:4px;}
+.profile-location .field-value-span .edit.button{float:right; margin-left:4px;}
+.profile .button.save{
+position:fixed;
+bottom:5px;
+left:10px;
+height:auto;
+width:36px;
+background-color:rgb(197, 68, 62);
+padding:2px;
+border-radius:4px;
+text-align:center;
+box-sizing:border-box;
+cursor:pointer;
+display:none;
+}
+.profile .button.save.visible{
+	display:block;
+}
+
+.profile .button.save .inner{
+width:100%;
+display:block;
+text-align:center;
+box-sizing:border-box;
+}
+.profile .button.save .text-block{
+width:100%;
+font-size:10px;
+line-height:8px;
+color:#eeeeee;
+padding-top:2px;
+display:block;
+box-sizing:border-box;
+text-align:center;
+}
+.profile .button.save .image{
+	width:32px;
+height:32px;
+display:block;
+box-sizing:border-box;
+}
+.profile .tags-editor{
+	float:left;
+	box-sizing:border-box;
+	border:3px solid rgb(32, 31, 30);
+	background-color:rgb(32, 31, 39);
+	border-radius:3px;
+}
+.profile .tags-editor .text-add{
+	padding:2px;
+	font-size:14px;
+    color: #323232; 
+}
+.profile .two-fields-per-row .checkbox-array .row:nth-child(2n){
+	padding-left:6px;
+}
+.profile .three-fields-per-row .checkbox-array .row:nth-child(3n-1),
+.profile .three-fields-per-row .checkbox-array .row:nth-child(3n)
+{
+	padding-left:6px;
+}
+.profile .two-fields-per-row .checkbox-array .row:nth-child(2n) .text-block{
+	left:56px;
+}
+.profile .three-fields-per-row .checkbox-array .row:nth-child(3n-1) .text-block,
+.profile .three-fields-per-row .checkbox-array .row:nth-child(3n) .text-block{
+	left:56px;
+}
+.profile .bold-heading .field-key{
+	font-weight:bold;
+}
