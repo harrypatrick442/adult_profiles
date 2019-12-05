@@ -6,6 +6,8 @@ module.exports = new (function(){
 	Core.Linq;
 	const ProfileRepository = require('./ProfileRepository');
 	const ProfilePropertyNames = require('./ProfilePropertyNames');
+	const Client = require('client');
+	const UsersRouter = Client.UsersRouter;
 	this.updateProfile = function(req, user){
 		return new Promise(function(resolve, reject){
 			var userId = user.getId();
@@ -43,7 +45,7 @@ module.exports = new (function(){
 		});
 	};
 	function sendProfileUpdatesToAllUserDevices(userId, profile){
-		UsersRouter.sendToServersWith(userId, {type:S.CLIENT_PROFILE_UPDATES, userId:userId, profile:profile});
+		UsersRouter.get().sendToServersWith(userId, {type:S.CLIENT_PROFILE_UPDATES, userId:userId, profile:profile});
 	}
 	function updateLocation(profile, i){
 		var location = profile[S.LOCATION];

@@ -6,8 +6,9 @@ module.exports = new (function(){
 	var initialized = false;
 	this.initialize = function(){
 		if(initialized)throw new Error('Already initialized');
-		UsersRouter.addMessageCallback(S.CLIENT_PROFILE_UPDATES, clientProfileUpdates);
+		UsersRouter.get().addMessageCallback(S.CLIENT_PROFILE_UPDATES, clientProfileUpdates);
 		initialized = true;
+		console.log('INITIALIZED');
 	};
 	function clientProfileUpdates(msg, channel){
 		console.log('got client profile updates');
