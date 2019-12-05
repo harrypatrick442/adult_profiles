@@ -22,6 +22,7 @@ module.exports = new (function(){
 				}
 				updateMultimediaCategories(profile, req[S.MULTIMEDIA_CATEGORIES]);
 				ProfileRepository.update(userId, profile).then(resolve).catch(reject);
+				sendProfileUpdatesToAllUserDevices(userId, profile);
 			}).catch(reject);
 		});
 	};
@@ -41,18 +42,22 @@ module.exports = new (function(){
 			}).catch(reject);
 		});
 	};
+	function sendProfileUpdatesToAllUserDevices(userId, profile){
+		UsersRouter.sendToServersWith(userId, {type:S.CLIENT_PROFILE_UPDATES, userId:userId, profile:profile});
+	}
 	function updateLocation(profile, i){
 		var location = profile[S.LOCATION];
 		if(!location){
 			location = {};
 			profile[S.LOCATION] = location;
 		}
-		location.changed=true;
+		location[S.CHANGED]=true;
 		each(ProfilePropertyNames[S.LOCATION], function(propertyName){
 			location[propertyName]=i[propertyName];
 		});
 	}
 	function updateMultimediaCategories(profile, multimediaCategoriesChanged){
+		console.log(multimediaCategoriesChanged);
 		if(!multimediaCategoriesChanged)return;
 		var multimediaCategoriesExisting = profile[S.MULTIMEDIA_CATEGORIES];
 		if(!multimediaCategoriesExisting)

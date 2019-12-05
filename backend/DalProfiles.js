@@ -202,7 +202,6 @@ WEBCAMS = 'webcams';
 	const DalMultimedia=Multimedia.DalMultimedia;
 	var initialized=false;
 	var dal;
-	var dalMultimedia;
 	this.initialize = function(configuration){
 		if(initialized)throw new Error('already initialized');
 		initialized = true;
@@ -322,7 +321,7 @@ WEBCAMS = 'webcams';
 				}
 				var multimediaCategory = iteratorMultimediaCategory.next();
 					multimediaCategory[S.CHANGED]=false;
-				dalMultimedia.editMultimediaCategory(multimediaCategory).then(next).catch(reject);
+				DalMultimedia.editMultimediaCategory(multimediaCategory).then(next).catch(reject);
 			}
 			next();
 		});
