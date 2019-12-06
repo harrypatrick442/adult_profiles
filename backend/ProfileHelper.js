@@ -8,6 +8,12 @@ module.exports = new (function(){
 	const ProfilePropertyNames = require('./ProfilePropertyNames');
 	const Client = require('client');
 	const UsersRouter = Client.UsersRouter;
+	var users;
+	this.initialize = function(usersIn){
+		if(initialized)throw new Error('Already initialized');
+		initialized = true;
+		users = usersIn;
+	};
 	this.updateProfile = function(req, user){
 		return new Promise(function(resolve, reject){
 			var userId = user.getId();
@@ -45,7 +51,9 @@ module.exports = new (function(){
 		});
 	};
 	function sendProfileUpdatesToAllUserDevices(userId, profile){
-		UsersRouter.get().sendToServersWith(userId, {type:S.CLIENT_PROFILE_UPDATES, userId:userId, profile:profile});
+		var msg = {type:S.CLIENT_PROFILE_UPDATES, userId:userId, profile:profile};	
+		users.getDevices().sendMessage(msg);
+		UsersRouter.get().sendToServersWith(userId, msg);
 	}
 	function updateLocation(profile, i){
 		var location = profile[S.LOCATION];
