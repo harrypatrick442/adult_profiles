@@ -31,7 +31,9 @@ module.exports = new (function(){
 				}
 				updateMultimediaCategories(profile, req[S.MULTIMEDIA_CATEGORIES]);
 				ProfileRepository.update(userId, profile).then(resolve).catch(reject);
-				sendProfileUpdatesToAllUserDevices(userId, profile);
+				setTimeout(()=>{
+					sendProfileUpdatesToAllUserDevices(userId, profile);
+				},0);
 			}).catch(reject);
 		});
 	};
@@ -52,11 +54,43 @@ module.exports = new (function(){
 		});
 	};
 	function sendProfileUpdatesToAllUserDevices(userId, profile){
-		var msg = {type:S.CLIENT_PROFILE_UPDATES, userId:userId, profile:profile};	
+		var msg = {type:S.CLIENT_PROFILE_UPDATES, [S.USER_ID]:userId, [S.PROFILE]:getChangedComponentsOfProfile(profile)};	
 		var user = users.getById(userId);
-		console.log('by id user');
 		if(user)user.getDevices().sendMessage(msg);
 		UsersRouter.get().sendToServersWith(userId, msg);
+	}
+	function getChangedComponentsOfProfile(profile){
+		var changedProfile = {};
+		var location = profile[S.LOCATION];
+		if(location&&location[S.CHANGED]){
+			changedProfile[S.LOCATION]=profile[S.LOCATION];
+		}
+		
+		var interview = profile[S.INTERVIW];
+		if(interview){
+			if(interview[S.CHANGED])changedProfile[S.INTERVIEW]=interview;
+			var personality = interview[S.PERSONALITY];
+			if(personality&&personality[S.CHANGED]){
+				if(!changedProfile[S.INTERVIEW])changedProfile[S.INTERVIEW]={};
+				changedProfile[S.INTERVIEW][S.PERSONALITY]=personality;
+			}
+			var physical = interview[S.PHYSICAL];
+			if(physical&&physical[S.CHANGED]){
+				if(!changedProfile[S.INTERVIEW])changedProfile[S.INTERVIEW]={};
+				changedProfile[S.INTERVIEW][S.PHYSICAL]=physical;
+			}
+		}
+		
+		var multimediaCategories = profile[S.MULTIMEDIA_CATEGORIES];
+		if(multimediaCategories){
+			var changedMultimediaCategories =[];
+			multimediaCategories.forEach((multimediaCategory)=>{
+				if(multimediaCategory[S.CHANGED])changedMultimediaCategories.push(multimediaCategory);
+			});
+			if(changedMultimediaCategories.length>0)
+			changedProfile[S.MULTIMEDIA_CATEGORIES]=changedMultimediaCategories;
+		}
+		return changedProfile;
 	}
 	function updateLocation(profile, i){
 		var location = profile[S.LOCATION];
