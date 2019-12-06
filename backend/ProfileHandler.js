@@ -4,7 +4,9 @@ module.exports = new (function(){
 	const Client = require('client');
 	const UsersRouter = Client.UsersRouter;
 	var initialized = false;
-	this.initialize = function(){
+	var users;
+	this.initialize = function(usersIn){
+		users = usersIn;
 		if(initialized)throw new Error('Already initialized');
 		UsersRouter.get().addMessageCallback(S.CLIENT_PROFILE_UPDATES, clientProfileUpdates);
 		initialized = true;
