@@ -66,7 +66,7 @@ module.exports = new (function(){
 			changedProfile[S.LOCATION]=profile[S.LOCATION];
 		}
 		
-		var interview = profile[S.INTERVIW];
+		var interview = profile[S.INTERVIEW];
 		if(interview){
 			if(interview[S.CHANGED])changedProfile[S.INTERVIEW]=interview;
 			var personality = interview[S.PERSONALITY];

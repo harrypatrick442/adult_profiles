@@ -259,8 +259,9 @@ WEBCAMS = 'webcams';
 			var location = profile.location;
 			if(location&&location[S.CHANGED])
 			{
+				location[S.CHANGED]=false;
 				params = params.concat(getLocationParams(location));
-					params.push({name:SET_LOCATION, value:true, type:sql.Bit});
+				params.push({name:SET_LOCATION, value:true, type:sql.Bit});
 			}
 			params = params.concat(getLocationQuadsParams(location&&location[S.QUADS]));
 			var interview = profile.interview;
@@ -320,7 +321,7 @@ WEBCAMS = 'webcams';
 					return;
 				}
 				var multimediaCategory = iteratorMultimediaCategory.next();
-					multimediaCategory[S.CHANGED]=false;
+				multimediaCategory[S.CHANGED]=false;
 				DalMultimedia.editMultimediaCategory(multimediaCategory).then(next).catch(reject);
 			}
 			next();
