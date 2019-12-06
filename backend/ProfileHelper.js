@@ -9,6 +9,7 @@ module.exports = new (function(){
 	const Client = require('client');
 	const UsersRouter = Client.UsersRouter;
 	var users;
+	var initialized = false;
 	this.initialize = function(usersIn){
 		if(initialized)throw new Error('Already initialized');
 		initialized = true;
