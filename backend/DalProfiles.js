@@ -321,7 +321,7 @@ WEBCAMS = 'webcams';
 					return;
 				}
 				var multimediaCategory = iteratorMultimediaCategory.next();
-				multdimediaCategory[S.CHANGED]=false;
+				multimediaCategory[S.CHANGED]=false;
 				DalMultimedia.editMultimediaCategory(multimediaCategory).then(next).catch(reject);
 			}
 			next();
