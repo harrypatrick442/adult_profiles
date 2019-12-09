@@ -100,7 +100,7 @@ module.exports = new (function(){
 			profile[S.LOCATION] = location;
 		}
 		location[S.CHANGED]=true;
-		each(ProfilePropertyNames[S.LOCATION], function(propertyName){
+		each(ProfilePropertyNames.location, function(propertyName){
 			location[propertyName]=i[propertyName];
 		});
 	}
@@ -112,7 +112,7 @@ module.exports = new (function(){
 		}
 		if(i[S.HAVE_OWN_CHANGES]){
 			interview[S.CHANGED]=true;
-			each(ProfilePropertyNames[S.INTERVIEW], function(propertyName){
+			each(ProfilePropertyNames.interview, function(propertyName){
 				interview[propertyName]=i[propertyName];
 			});
 		}
@@ -141,7 +141,7 @@ module.exports = new (function(){
 			interview[S.PERSONALITY] = personality;
 		}
 		personality[S.CHANGED]=true;
-		each(ProfilePropertyNames[S.PERSONALITY], function(propertyName){
+		each(ProfilePropertyNames.personality, function(propertyName){
 			personality[propertyName]=i[propertyName];
 		});
 	}
