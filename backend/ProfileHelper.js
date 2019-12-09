@@ -54,7 +54,7 @@ module.exports = new (function(){
 		});
 	};
 	function sendProfileUpdatesToAllUserDevices(userId, profile){
-		var msg = {type:S.CLIENT_PROFILE_UPDATES, [S.USER_ID]:userId, [S.PROFILE]:getChangedComponentsOfProfile(profile)};	
+		var msg = {[S.TYPE]:S.CLIENT_PROFILE_UPDATES, [S.USER_ID]:userId, [S.PROFILE]:getChangedComponentsOfProfile(profile)};	
 		var user = users.getById(userId);
 		if(user)user.getDevices().sendMessage(msg);
 		UsersRouter.get().sendToServersWith(userId, msg);
