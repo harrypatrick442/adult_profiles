@@ -8,6 +8,7 @@ module.exports = new (function(){
 	const ProfilePropertyNames = require('./ProfilePropertyNames');
 	const Client = require('client');
 	const UsersRouter = Client.UsersRouter;
+	const MultimediaCategoryHelper = require('multimedia').MultimediaCategoryHelper;
 	var users;
 	var initialized = false;
 	this.initialize = function(usersIn){
@@ -29,7 +30,7 @@ module.exports = new (function(){
 					hasStandardChanges=true;
 					updateLocation(profile, req[S.LOCATION]);
 				}
-				updateMultimediaCategories(profile, req[S.MULTIMEDIA_CATEGORIES]);
+				MultimediaCategoryHelper.updateMultimediaCategories(profile, req[S.MULTIMEDIA_CATEGORIES]);
 				ProfileRepository.update(userId, profile).then(resolve).catch(reject);
 				setTimeout(()=>{
 					sendProfileUpdatesToAllUserDevices(userId, profile);
@@ -102,29 +103,6 @@ module.exports = new (function(){
 		each(ProfilePropertyNames[S.LOCATION], function(propertyName){
 			location[propertyName]=i[propertyName];
 		});
-	}
-	function updateMultimediaCategories(profile, multimediaCategoriesChanged){
-		console.log(multimediaCategoriesChanged);
-		if(!multimediaCategoriesChanged)return;
-		var multimediaCategoriesExisting = profile[S.MULTIMEDIA_CATEGORIES];
-		if(!multimediaCategoriesExisting)
-		{ 
-			multimediaCategoriesExisting=[];
-			profile[S.MULTIMEDIA_CATEGORIES]=multimediaCategoriesExisting;
-		}
-		each(multimediaCategoriesChanged, function(multimediaCategoryChanged){
-			var matchingMultimediaCategory = multimediaCategoriesExisting.where(
-			multimediaCategory=>multimediaCategory[S.MULTIMEDIA_CATEGORY_ID]==multimediaCategoryChanged[S.MULTIMEDIA_CATEGORY_ID])
-			.firstOrDefault();
-			if(!matchingMultimediaCategory){
-				matchingMultimediaCategory={};
-				multimediaCategoriesExisting.push(matchingMultimediaCategory);
-			}
-			each(ProfilePropertyNames[S.MULTIMEDIA_CATEGORY] , function(propertyName){
-					matchingMultimediaCategory[propertyName]=multimediaCategoryChanged[propertyName];
-			});
-			matchingMultimediaCategory[S.CHANGED]=true;
-		})
 	}
 	function updateProfile_Interview(profile, i){
 		var interview = profile[S.INTERVIEW];
