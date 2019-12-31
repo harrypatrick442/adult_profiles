@@ -217,7 +217,7 @@ WEBCAMS = 'webcams';
 					var rows = result.recordsets[0];
 					if(rows.length>0){
 						var row = rows[0];
-						var profile={[S.USER_ID]:userId,[S.LOCATION]:readLocation(row),[S.INTERVIEW]:readInterview(row), [S.MULTIMEDIA_CATEGORIES]:JSON.parse(row.multimediaCategories)};
+						var profile={[S.USER_ID]:userId,[S.USERNAME]:row[USERNAME],[S.LOCATION]:readLocation(row),[S.INTERVIEW]:readInterview(row), [S.MULTIMEDIA_CATEGORIES]:JSON.parse(row.multimediaCategories)};
 						resolve(profile);
 						return;
 					}
