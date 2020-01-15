@@ -58,7 +58,7 @@ module.exports = new (function(){
 		var msg = {[S.TYPE]:S.CLIENT_PROFILE_UPDATES, [S.USER_ID]:userId, [S.PROFILE]:getChangedComponentsOfProfile(profile)};	
 		var user = users.getById(userId);
 		if(user)user.getDevices().sendMessage(msg);
-		UsersRouter.get().sendToServersWith(userId, msg);
+		UsersRouter.sendToServersWith(userId, msg);
 	}
 	function getChangedComponentsOfProfile(profile){
 		var changedProfile = {};

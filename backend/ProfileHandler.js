@@ -8,7 +8,7 @@ module.exports = new (function(){
 	this.initialize = function(usersIn){
 		users = usersIn;
 		if(initialized)throw new Error('Already initialized');
-		UsersRouter.get().addMessageCallback(S.CLIENT_PROFILE_UPDATES, clientProfileUpdates);
+		UsersRouter.addMessageCallback(S.CLIENT_PROFILE_UPDATES, clientProfileUpdates);
 		initialized = true;
 		console.log('INITIALIZED');
 	};

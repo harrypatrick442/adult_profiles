@@ -7,10 +7,10 @@ module.exports = new (function(){
 		getFromDatabaseById:dalProfiles.getByUserId,
 		updateToDatabase:updateToDatabase,
 		merge:merge,
-		router:ProfilesRouter.get(),
+		router:ProfilesRouter,
 		provideRemote:true
 	});
-	ProfilesRouter.get().setProfilesCache(cache);
+	ProfilesRouter.setProfilesCache(cache);
 	this.getByUserIdJSONString = function(userId){
 		return cache.getJSONStringById(userId);
 	};
