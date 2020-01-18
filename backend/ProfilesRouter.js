@@ -7,7 +7,8 @@ module.exports = new (function(){
 	EventEnabledBuilder(this);
 	var self = this;
 	var profilesCache;
-	var itemRouter = new ItemRouter({itemType:ItemTypes.PROFILE, getIds:getIds});
+	const itemType = ItemTypes.PROFILE;
+	var itemRouter = new ItemRouter({itemType:itemType, getIds:getIds});
 	this.getChannels=itemRouter.getChannels;
 	this.getRoutingTable=itemRouter.getRoutingTable;
 	this.getMyIp = itemRouter.getMyIp;
@@ -16,6 +17,7 @@ module.exports = new (function(){
 	this.has = itemRouter.hasItem;
 	this.add=itemRouter.addItem;
 	this.remove = itemRouter.removeItem;
+	this.getItemType = itemRouter.getItemType;
 	this.setProfilesCache = function(value){
 		profilesCache=value;
 	};
