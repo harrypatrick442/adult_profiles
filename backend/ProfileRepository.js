@@ -2,14 +2,18 @@ module.exports = new (function(){
 	const dalProfiles = require('./DalProfiles');
 	const Cache = require('cache').Cache;
 	const ProfilesRouter = require('./ProfilesRouter');
-	var cache = new Cache({
-		name:'Profiles Cache',
-		getFromDatabaseById:dalProfiles.getByUserId,
-		updateToDatabase:updateToDatabase,
-		merge:merge,
-		router:ProfilesRouter,
-		provideRemote:true
-	});
+	var cache;
+	this.initialize = function(cacheConfiguration){
+		if(cache)throw new Error('Already initialized');
+		cache= new Cache({
+			name:'Profiles Cache',
+			getFromDatabaseById:dalProfiles.getByUserId,
+			updateToDatabase:updateToDatabase,
+			merge:merge,
+			router:ProfilesRouter,
+			cacheConfiguration   :cacheConfiguration
+		});
+	};
 	ProfilesRouter.setProfilesCache(cache);
 	this.getByUserIdJSONString = function(userId){
 		return cache.getJSONStringById(userId);
