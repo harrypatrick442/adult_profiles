@@ -1,4 +1,5 @@
 module.exports = new (function(){
+	console.log('PROFILES ROUTER');
 	const MESSAGE='message';
 	const EventEnabledBuilder = require('core').EventEnabledBuilder;
 	const ItemTypes = require('enums').ItemTypes;
