@@ -13,8 +13,8 @@ module.exports = new (function(){
 			router:ProfilesRouter,
 			cacheConfiguration   :cacheConfiguration
 		});
+		ProfilesRouter.setProfilesCache(cache);
 	};
-	ProfilesRouter.setProfilesCache(cache);
 	this.getByUserIdJSONString = function(userId){
 		return cache.getJSONStringById(userId);
 	};
