@@ -36,7 +36,6 @@ module.exports = new (function(){
 		itemRouter.sendRoutingTable(channel.getIp());
 	}
 	function dispatchOnMessage(msg, channel){
-		var msg = {type:MESSAGE, msg:msg, channel:channel.getPublic()};
-		self.dispatchEvent(msg);
+		self.dispatchEvent({type:MESSAGE, msg:msg, channel:channel.getPublic()});
 	}
 })();
