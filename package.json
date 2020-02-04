@@ -1,19 +1,31 @@
 {
-  "name": "authentication",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://harrypatrick442:Seahorses79@github.com/harrypatrick442/authentication.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/harrypatrick442/authentication/issues"
-  },
-  "homepage": "https://github.com/harrypatrick442/authentication#readme"
+	"name": "adult_profiles",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"dependencies": {
+		"cache": "^1.0.0",
+		"client": "^1.0.0",
+		"core": "^1.0.0",
+		"enums": "^1.0.0",
+		"multimedia": "^1.0.0",
+		"interserver_communication": "^1.0.0",
+		"dal": "^1.0.0",
+		"strings": "^1.0.0",
+		"repositories_helper": "^1.0.0"
+	},
+	"devDependencies": {},
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/harrypatrick442/adult_profiles.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/harrypatrick442/adult_profiles/issues"
+	},
+	"homepage": "https://github.com/harrypatrick442/adult_profiles#readme"
 }
