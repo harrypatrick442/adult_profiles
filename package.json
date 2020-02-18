@@ -4,15 +4,24 @@
 	"description": "",
 	"main": "index.js",
 	"dependencies": {
+		"accounts": "^1.0.0",
+		"authentication": "^1.0.0",
+		"bluebird": "^3.7.2",
 		"cache": "^1.0.0",
 		"client": "^1.0.0",
+		"configuration": "^1.0.0",
 		"core": "^1.0.0",
-		"enums": "^1.0.0",
-		"multimedia": "^1.0.0",
-		"interserver_communication": "^1.0.0",
 		"dal": "^1.0.0",
+		"enums": "^1.0.0",
+		"file_system": "^1.0.0",
+		"file_transfer": "^1.0.0",
+		"hosts": "^1.0.0",
+		"interserver_communication": "^1.0.0",
+		"multimedia": "^1.0.0",
+		"repositories_helper": "^1.0.0",
+		"shards": "^1.0.0",
 		"strings": "^1.0.0",
-		"repositories_helper": "^1.0.0"
+		"tags": "^1.0.0"
 	},
 	"devDependencies": {},
 	"scripts": {
