@@ -7,7 +7,7 @@ const RepositoriesHelper = require('repositories_helper');module.exports={
 	get ProfileRepository(){return require('./backend/ProfileRepository')},
 	get ProfilesRouter(){return require('./backend/ProfilesRouter')},
 	get SearchMembersCache(){return require('./backend/SearchMembersCache')},
-
+	get Tables(){return require('./db/TablesMysql');},
 	getScriptsRelativePath:RepositoriesHelper.getGetScriptsRelativePath(),
 	getScriptsAbsolutePath:RepositoriesHelper.getGetScriptsAbsolutePath(),
 	getStylesRelativePath:RepositoriesHelper.getGetStylesRelativePath(),
